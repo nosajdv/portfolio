@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="icon" type="image/png" href="src/favicon.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+         <fieldset>
+            <div>Bienvenu sur mon portfolio</div>
+            <div>Je mme présente Jason DA VEIGA, étudiant en License infmartique, sur cette page vous retrouverer
+                mes projets personels, mes experiences et mes qualifications.
+            </div>
+        </fieldset>
+
+        <div class="copyright">
+            © 2025 nosajdv.github.io
+        </div>
+    
+
+</body>
+</html>

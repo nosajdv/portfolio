@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="img/favicon.ico" />
 </head>
 <body>
-<nav class="floating-navbar">
-  <button class="circle-btn" id="toggle-menu">☰</button>
-  <div class="nav-items" id="nav-items">
-    <a href="#accueil" class="nav-link">Accueil 🏠</a>
-    <a href="#projets" class="nav-link">Projets 📁</a>
-    <a href="#about" class="nav-link">À propos 👤</a>
-    <a href="#contact" class="nav-link">Contacts ✉️</a>
-  </div>
-</nav>
-
-<section id="accueil" class="hero reveal">
-  <div class="container">
-    <h1>Mon Portfolio</h1>
-    <p class="subtitle">Bienvenue sur mon Portfolio je me présente</p>
-    <p><strong>Jason DA VEIGA, étudiant en Licence Informatique.</strong></p>
-    <div class="hero-content"></div>
-    <p>Sur cette page vous retrouverez mes projets, mes qualifications et mon parcours.</p>
-    <p>N'hésitez pas à utiliser mon Navbar en haut à gauche pour vous déplacer !</p>
-  </div>
-</section>
-
-<section id="projets" class="projects reveal">
-  <div class="container">
-    <h2>Mes Projets: </h2>
-    <div id="projects-container" class="projects-grid"></div>
-  </div>
-</section>
-
-<section id="about" class="about reveal">
-  <div class="container">
-    <div class="portrait" style="background-image: url('img/portrait.jpg');"></div>
-    <div>
-      <h2>À propos de moi</h2>
-      <p>
-        Je suis <strong>Jason DA VEIGA</strong>, un étudiant passionné en Licence Informatique.
-        J'aime créer des projets web, le scripting en shell et explorer les technologies modernes et résoudre des problèmes techniques.
-      </p>
-      <p>
-        Mes compétences incluent : HTML, CSS, JavaScript, Git, ainsi que les bases en C et Java.
-      </p>
+  <nav class="floating-navbar">
+    <button class="circle-btn" id="toggle-menu">☰</button>
+    <div class="nav-items" id="nav-items">
+      <a href="#accueil" class="nav-link">Accueil 🏠</a>
+      <a href="#projets" class="nav-link">Projets 📁</a>
+      <a href="#about" class="nav-link">À propos 👤</a>
+      <a href="#contact" class="nav-link">Contacts ✉️</a>
     </div>
-  </div>
-</section>
+    <button class="lang-btn" id="lang-toggle">EN</button>
+  </nav>
 
-<section id="contact" class="contact reveal">
-  <div class="container">
-    <h2>Contactez-moi</h2>
-    <p>Vous pouvez me joindre via les moyens suivants :</p>
-    <ul>
-      <li>
-        <img src="img/email.png" alt="Email">
-        <a href="mailto:jason@example.com">jason.daveiga1@gmail.com</a>
-      </li>
-      <li>
-        <img src="img/linkedin.png" alt="LinkedIn">
-        <a href="https://www.linkedin.com/in/jasondaveiga" target="_blank">linkedin.com/in/jasondaveiga</a>
-      </li>
-      <li>
-        <img src="img/github.png" alt="GitHub">
-        <a href="https://github.com/nosajdv" target="_blank">github.com/nosajdv</a>
-      </li>
-    </ul>
-  </div>
-</section>
+  <section id="accueil" class="hero reveal">
+    <div class="container">
+      <h1>Mon Portfolio</h1>
+      <p class="subtitle">Bienvenue sur mon Portfolio, je me présente :</p>
+      <p><strong>Jason DA VEIGA, étudiant en Licence Informatique.</strong></p>
+      <p>Sur cette page vous retrouverez mes projets, mes qualifications et mon parcours.</p>
+      <p>N'hésitez pas à utiliser la barre de navigation en haut à gauche pour vous déplacer !</p>
+    </div>
+  </section>
 
+  <section id="projets" class="projects reveal">
+    <div class="container">
+      <h2>Mes Projets</h2>
+      <div id="projects-container" class="projects-grid"></div>
+    </div>
+  </section>
 
-<footer>
-  <div class="container">
-    <p>© <span id="current-year"></span> nosajdv.github.io</p>
-  </div>
-</footer>
+  <section id="about" class="about reveal">
+    <div class="container">
+      <div class="portrait" style="background-image: url('img/portrait.jpg');"></div>
+      <div>
+        <h2>À propos de moi</h2>
+        <p>
+          Je suis <strong>Jason DA VEIGA</strong>, un étudiant passionné en Licence Informatique.
+          J'aime créer des projets web, le scripting en shell, explorer les technologies modernes et résoudre des problèmes techniques.
+        </p>
+        <p>
+          Mes compétences incluent : HTML, CSS, JavaScript, Git, ainsi que les bases en C et Java.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<script src="scripts/load-projects.js"></script>
-<script>
-  // Année dynamique
-  document.getElementById('current-year').textContent = new Date().getFullYear();
-</script>
-<script src="scripts/script.js"></script>
+  <section id="contact" class="contact reveal">
+    <div class="container">
+      <h2>Contactez-moi</h2>
+      <p>Vous pouvez me joindre via les moyens suivants :</p>
+      <ul>
+        <li>
+          <img src="img/email.png" alt="Email">
+          <a href="mailto:jason.daveiga1@gmail.com">jason.daveiga1@gmail.com</a>
+        </li>
+        <li>
+          <img src="img/linkedin.png" alt="LinkedIn">
+          <a href="https://www.linkedin.com/in/jasondaveiga" target="_blank">linkedin.com/in/jasondaveiga</a>
+        </li>
+        <li>
+          <img src="img/github.png" alt="GitHub">
+          <a href="https://github.com/nosajdv" target="_blank">github.com/nosajdv</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="current-year"></span> nosajdv.github.io</p>
+    </div>
+  </footer>
+
+  <script src="scripts/load-projects.js"></script>
+  <script>
+    // Année dynamique
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // (Optionnel) Langue — peut être branché avec une future logique
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      alert("Fonction de changement de langue à implémenter !");
+    });
+  </script>
+  <script src="scripts/script.js"></script>
 </body>
 </html>

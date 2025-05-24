@@ -268,6 +268,17 @@ section {
   transform: translateY(0);
 }
 
+.reveal [data-i18n] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s ease 0.2s;
+}
+
+.reveal.active [data-i18n] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .lang-btn {
   background: none;
   border: none;
@@ -277,6 +288,58 @@ section {
   padding: 10px;
 }
 
+/* ---------------- Language Switcher ---------------- */
+.lang-btn {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 1001;
+  background: rgba(16, 18, 20, 0.8);
+  color: var(--lightest-slate);
+  border: 1px solid var(--light-slate);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-btn:hover {
+  background: rgba(52, 58, 68, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.lang-btn::before {
+  content: '🌐';
+  font-size: 1.1rem;
+}
+
+.lang-btn.active {
+  background: var(--light-navy);
+  color: var(--accent);
+}
+
+/* Animation for language change */
+@keyframes langChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.lang-change-animation {
+  animation: langChange 0.4s ease;
+}
+
+/* Smooth transition for language content */
+[data-i18n] {
+  transition: opacity 0.3s ease;
+}
 
 /* ---------------- Mobile Responsive ---------------- */
 @media (max-width: 600px) {
@@ -300,5 +363,15 @@ section {
 
   .about .container {
     flex-direction: column;
+  }
+   .lang-btn {
+    top: 20px;
+    right: 20px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .lang-btn::before {
+    font-size: 1rem;
   }
 }

@@ -25,9 +25,14 @@ function loadLang(lang) {
 
 document.getElementById('lang-toggle').addEventListener('click', () => {
   currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  document.getElementById('lang-toggle').classList.add('lang-change-animation');
+  setTimeout(() => {
+    document.getElementById('lang-toggle').classList.remove('lang-change-animation');
+  }, 400);
   loadLang(currentLang);
   document.getElementById('lang-toggle').innerText = currentLang === 'fr' ? 'EN' : 'FR';
 });
 
 // Initialization
 loadLang(currentLang);
+

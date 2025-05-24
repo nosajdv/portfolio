@@ -19,5 +19,12 @@
     "tags": ["Java"],
     "image": "img/java-sum.png",
     "link": "https://github.com/nosajdv/JAVA-summaxV2"
+  },
+  {
+    "title": "Simulation Java fait pour Linux",
+    "tags": ["Java"],
+    "description": "Simulation qui représente le comportement d'abeilles fait en Java, avec affichage",
+    "image": "img/java-bees.png",
+    "link": "https://github.com/nosajdv/projetjava"
   }
 ]

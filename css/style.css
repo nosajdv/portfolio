@@ -1,162 +1,294 @@
-/* style.css */
 :root {
-    --dark-blue: #0a192f;
-    --slate: #8892b0;
-    --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
-    --accent: #64ffda;
-    --navy-shadow: rgba(2, 12, 27, 0.7);
+  --dark-navy: #101214;
+  --light-navy: #343a44;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --accent: #ffffff;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'SF Mono', 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--dark-blue);
-    color: var(--light-slate);
-    line-height: 1.6;
-    overflow-x: hidden;
+  background-color: var(--dark-navy);
+  color: var(--light-slate);
+  line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Animation keyframes */
+/* ---------------- Animations ---------------- */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-/* Navigation */
-.navbar {
-    background: rgba(10, 25, 47, 0.95) !important; /* Force l'arrière-plan */
-    position: fixed !important;
-    top: 0 !important; /* Surcharge l'animation */
-    width: 100%;
-    z-index: 1000;
-    padding: 1rem 0;
-    transition: all 0.3s ease;
-    transform: translateY(0) !important; /* Annule les transformations */
+@keyframes navEnter {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Solution de repli si l'animation cause problème */
-.navbar.init {
-    animation: none !important;
-    top: 0 !important;
+@keyframes boxFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-/* Hero Section */
-.hero {
-    min-height: 100vh;
-    padding: 150px 2rem 0;
-    display: flex;
-    align-items: center;
-    animation: fadeIn 1s ease forwards;
-}
-
-.hero h1 {
-    color: var(--lightest-slate);
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    margin-bottom: 1.5rem;
-}
-
-.hero p {
-    color: var(--slate);
-    max-width: 600px;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    animation: slideUp 0.8s ease 0.2s backwards;
-}
-
-/* Project Cards */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.project-card {
-    background: rgba(17, 34, 64, 0.5);
-    border-radius: 4px;
-    padding: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.project-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    animation: cardReveal 0.6s ease forwards;
+@keyframes revealBox {
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes cardReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- Floating Navbar ---------------- */
+.floating-navbar {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+/* Bouton circulaire */
+.circle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: var(--dark-navy);
+  font-size: 1.8rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.circle-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--light-slate);
+}
+
+.circle-btn::before {
+  content: '☰';
+}
+.circle-btn.open::before {
+  content: '✖';
+}
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  white-space: nowrap;
+  min-width: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.nav-items.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-link {
+  color: var(--lightest-slate);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: left;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--accent);
+  color: var(--dark-navy);
+}
+
+/* ---------------- Sections Générales ---------------- */
+section {
+  min-height: 100vh;
+  padding: 100px 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* ---------------- Hero Section ---------------- */
+.hero .container {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: revealBox 1s ease-out 0.4s forwards;
+}
+
+.hero h1 {
+  color: var(--lightest-slate);
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  color: var(--slate);
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  animation: slideUp 0.8s ease 0.2s backwards;
+}
+
+/* ---------------- Project Cards ---------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: rgba(17, 34, 64, 0.5);
+  border-radius: 4px;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: cardReveal 0.6s ease forwards;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
 }
 
-/* Accent elements */
+/* ---------------- About ---------------- */
+.about .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about .portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---------------- Contact ---------------- */
+.contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact li img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* ---------------- Utilitaires ---------------- */
 .accent {
-    color: var(--accent);
+  color: var(--accent);
 }
 
 .highlight {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 0.1em;
-    left: 0;
-    width: 100%;
-    height: 0.1em;
-    background: var(--accent);
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background: var(--accent);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 }
 
-/* Scroll animations */
+/* ---------------- Scroll Reveal ---------------- */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
 }
 
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------------- Mobile Responsive ---------------- */
+@media (max-width: 600px) {
+  .nav-items {
+    bottom: 70px;
+    right: 0;
+    align-items: flex-end;
+  }
+
+  .nav-link {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+
+  .circle-btn {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+
+  .about .container {
+    flex-direction: column;
+  }
 }

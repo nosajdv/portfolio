@@ -375,3 +375,98 @@ section {
     font-size: 1rem;
   }
 }
+
+/* Animated Backgrounds */
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+/* Particles Background */
+[data-bg-type="particles"] {
+  background: linear-gradient(135deg, var(--light-navy) 0%, var(--dark-navy) 100%);
+}
+
+/* Grid Background */
+[data-bg-type="grid"] {
+  background: 
+    linear-gradient(var(--slate) 1px, transparent 1px),
+    linear-gradient(90deg, var(--slate) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
+}
+
+/* Wave Background */
+[data-bg-type="waves"] {
+  background: 
+    radial-gradient(circle at 75% 50%, var(--light-navy), transparent 50%),
+    radial-gradient(circle at 25% 50%, var(--dark-navy), transparent 50%);
+  background-size: 200% 200%;
+  animation: waveMove 15s ease infinite;
+}
+
+/* Circuit Background */
+[data-bg-type="circuit"] {
+  background: 
+    linear-gradient(90deg, var(--dark-navy) 21px, transparent 1%) center,
+    linear-gradient(var(--dark-navy) 21px, transparent 1%) center,
+    var(--light-slate);
+  background-size: 22px 22px;
+  animation: circuitPulse 8s alternate infinite;
+}
+
+/* Animations */
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes waveMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes circuitPulse {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.2; }
+}
+
+/* Make sure sections have proper positioning */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Adjust content container to maintain readability */
+section .container {
+  position: relative;
+  background: rgba(16, 18, 20, 0.7);
+  backdrop-filter: blur(5px);
+  border-radius: 16px;
+  padding: 3rem;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-100px) translateX(20px); }
+  50% { transform: translateY(-50px) translateX(-20px); }
+  75% { transform: translateY(-100px) translateX(20px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+@media (prefers-color-scheme: light) {
+  .animated-bg {
+    opacity: 0.08;
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .animated-bg {
+    animation: none !important;
+  }
+}

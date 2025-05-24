@@ -63,3 +63,42 @@ const observer = new IntersectionObserver((entries) => {
 revealSections.forEach(section => observer.observe(section));
 
 });
+
+// Initialize different backgrounds for each section
+document.querySelectorAll('.animated-bg').forEach(bg => {
+  const type = bg.getAttribute('data-bg-type');
+  
+  if(type === 'particles') {
+    initParticles(bg);
+  }
+  // Add other initialization functions for different types
+});
+
+function initParticles(container) {
+  // Simple particle system implementation
+  const particleCount = 50;
+  
+  for(let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    // Random properties
+    const size = Math.random() * 5 + 1;
+    const posX = Math.random() * 100;
+    const posY = Math.random() * 100;
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * -20;
+    
+    particle.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${posX}%;
+      top: ${posY}%;
+      background: var(--light-slate);
+      animation: float ${duration}s ${delay}s infinite linear;
+      opacity: ${Math.random() * 0.5 + 0.1};
+    `;
+    
+    container.appendChild(particle);
+  }
+}

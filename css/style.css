@@ -35,50 +35,34 @@ body {
 
 /* Navigation */
 .navbar {
-    background-color: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(10px);
-    position: fixed;
+    background: rgba(10, 25, 47, 0.95) !important; /* Force l'arrière-plan */
+    position: fixed !important;
+    top: 0 !important; /* Surcharge l'animation */
     width: 100%;
-    top: -70px;
-    transition: top 0.3s ease, background-color 0.3s;
     z-index: 1000;
-    animation: slideDown 0.5s ease forwards;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+    transform: translateY(0) !important; /* Annule les transformations */
 }
 
-@keyframes slideDown {
-    from { top: -70px; }
-    to { top: 0; }
+/* Solution de repli si l'animation cause problème */
+.navbar.init {
+    animation: none !important;
+    top: 0 !important;
 }
 
-.navbar.scrolled {
-    background-color: rgba(10, 25, 47, 0.95);
-    box-shadow: 0 10px 30px -10px var(--navy-shadow);
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
 }
 
-.nav-link {
-    color: var(--light-slate);
-    position: relative;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover {
-    color: var(--accent);
-}
-
-.nav-link:hover::after {
-    width: 100%;
+.nav-links {
+    display: flex;
+    gap: 2rem;
 }
 
 /* Hero Section */

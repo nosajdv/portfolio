@@ -1,42 +1,30 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Navbar scroll effect
+    // Force l'initialisation de la navbar
     const navbar = document.querySelector('.navbar');
+    navbar.classList.add('init'); // Classe de secours
+    
+    // Scroll listener modifié
     let lastScroll = 0;
+    const scrollThreshold = 100;
 
     window.addEventListener('scroll', () => {
-        const currentScroll = window.pageY// script.jsOffset;
+        const currentScroll = window.pageYOffset;
         
-        if (currentScroll > lastScroll && currentScroll > 100) {
+        // Désactivation du hide/show initial
+        if (currentScroll <= scrollThreshold) {
+            navbar.style.top = '0';
+            return;
+        }
+
+        if (currentScroll > lastScroll) {
             navbar.style.top = '-70px';
         } else {
             navbar.style.top = '0';
         }
         lastScroll = currentScroll;
-
-        // Add scrolled class
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
     });
 
-    // Scroll reveal animations
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    revealElements.forEach(el => observer.observe(el));
-
-    // Project cards animation
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-        card.style.transitionDelay = `${index * 0.1}s`;
-    });
+    // Vérification visuelle
+    console.log('Navbar element:', navbar);
+    console.log('Computed styles:', window.getComputedStyle(navbar));
 });

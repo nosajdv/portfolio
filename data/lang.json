@@ -1,24 +1,26 @@
 {
   "fr": {
+    "title": "Portfolio de Jason DA VEIGA",
     "home": "Accueil 🏠",
     "projects": "Projets 📁",
     "about": "À propos 👤",
     "contact": "Contacts ✉️",
-    "welcome": "Bienvenue sur mon Portfolio je me présente",
+    "welcome": "Bienvenue sur mon Portfolio, je me présente :",
     "intro": "Sur cette page vous retrouverez mes projets, mes qualifications et mon parcours.",
-    "navigate": "N'hésitez pas à utiliser mon Navbar en haut à gauche pour vous déplacer !",
+    "navigate": "N'hésitez pas à utiliser la barre de navigation en haut à gauche pour vous déplacer !",
     "contactme": "Contactez-moi",
     "reachme": "Vous pouvez me joindre via les moyens suivants :"
   },
   "en": {
+    "title": "Jason DA VEIGA's Portfolio",
     "home": "Home 🏠",
     "projects": "Projects 📁",
     "about": "About 👤",
     "contact": "Contact ✉️",
-    "welcome": "Welcome to my portfolio. Let me introduce myself",
-    "intro": "On this page you’ll find my projects, qualifications, and background.",
-    "navigate": "Feel free to use the navbar at the top left to navigate!",
+    "welcome": "Welcome to my portfolio. Let me introduce myself:",
+    "intro": "On this page you'll find my projects, qualifications, and background.",
+    "navigate": "Feel free to use the navigation bar at the top left to move around!",
     "contactme": "Contact me",
-    "reachme": "You can reach me through the following:"
+    "reachme": "You can reach me through the following means:"
   }
 }

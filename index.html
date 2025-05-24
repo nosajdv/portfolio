@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
+  <title data-i18n="title">Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="img/favicon.ico" />
 </head>
@@ -11,10 +11,10 @@
   <nav class="floating-navbar">
     <button class="circle-btn" id="toggle-menu">☰</button>
     <div class="nav-items" id="nav-items">
-      <a href="#accueil" class="nav-link">Accueil 🏠</a>
-      <a href="#projets" class="nav-link">Projets 📁</a>
-      <a href="#about" class="nav-link">À propos 👤</a>
-      <a href="#contact" class="nav-link">Contacts ✉️</a>
+      <a href="#accueil" class="nav-link" data-i18n="home">Accueil 🏠</a>
+      <a href="#projets" class="nav-link" data-i18n="projects">Projets 📁</a>
+      <a href="#about" class="nav-link" data-i18n="about">À propos 👤</a>
+      <a href="#contact" class="nav-link" data-i18n="contact">Contacts ✉️</a>
     </div>
     <button class="lang-btn" id="lang-toggle">EN</button>
   </nav>
@@ -22,16 +22,16 @@
   <section id="accueil" class="hero reveal">
     <div class="container">
       <h1>Mon Portfolio</h1>
-      <p class="subtitle">Bienvenue sur mon Portfolio, je me présente :</p>
+      <p class="subtitle" data-i18n="welcome">Bienvenue sur mon Portfolio, je me présente :</p>
       <p><strong>Jason DA VEIGA, étudiant en Licence Informatique.</strong></p>
-      <p>Sur cette page vous retrouverez mes projets, mes qualifications et mon parcours.</p>
-      <p>N'hésitez pas à utiliser la barre de navigation en haut à gauche pour vous déplacer !</p>
+      <p data-i18n="intro">Sur cette page vous retrouverez mes projets, mes qualifications et mon parcours.</p>
+      <p data-i18n="navigate">N'hésitez pas à utiliser la barre de navigation en haut à gauche pour vous déplacer !</p>
     </div>
   </section>
 
   <section id="projets" class="projects reveal">
     <div class="container">
-      <h2>Mes Projets</h2>
+      <h2 data-i18n="projects">Mes Projets</h2>
       <div id="projects-container" class="projects-grid"></div>
     </div>
   </section>
@@ -40,7 +40,7 @@
     <div class="container">
       <div class="portrait" style="background-image: url('img/portrait.jpg');"></div>
       <div>
-        <h2>À propos de moi</h2>
+        <h2 data-i18n="about">À propos de moi</h2>
         <p>
           Je suis <strong>Jason DA VEIGA</strong>, un étudiant passionné en Licence Informatique.
           J'aime créer des projets web, le scripting en shell, explorer les technologies modernes et résoudre des problèmes techniques.
@@ -54,8 +54,8 @@
 
   <section id="contact" class="contact reveal">
     <div class="container">
-      <h2>Contactez-moi</h2>
-      <p>Vous pouvez me joindre via les moyens suivants :</p>
+      <h2 data-i18n="contactme">Contactez-moi</h2>
+      <p data-i18n="reachme">Vous pouvez me joindre via les moyens suivants :</p>
       <ul>
         <li>
           <img src="img/email.png" alt="Email">
@@ -80,14 +80,10 @@
   </footer>
 
   <script src="scripts/load-projects.js"></script>
+  <script src="scripts/lang.js"></script>
   <script>
     // Année dynamique
     document.getElementById('current-year').textContent = new Date().getFullYear();
-
-    // (Optionnel) Langue — peut être branché avec une future logique
-    document.getElementById('lang-toggle').addEventListener('click', () => {
-      alert("Fonction de changement de langue à implémenter !");
-    });
   </script>
   <script src="scripts/script.js"></script>
 </body>

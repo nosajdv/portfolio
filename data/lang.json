@@ -9,7 +9,8 @@
     "intro": "Sur cette page vous retrouverez mes projets, mes qualifications et mon parcours.",
     "navigate": "N'hésitez pas à utiliser la barre de navigation en haut à gauche pour vous déplacer !",
     "contactme": "Contactez-moi",
-    "reachme": "Vous pouvez me joindre via les moyens suivants :"
+    "reachme": "Vous pouvez me joindre via les moyens suivants :",
+    "Me":"Jason DA VEIGA, étudiant en Licence Informatique en France dans l'UFR des Sciences à Amiens."
   },
   "en": {
     "title": "Jason DA VEIGA's Portfolio",
@@ -21,6 +22,7 @@
     "intro": "On this page you'll find my projects, qualifications, and background.",
     "navigate": "Feel free to use the navigation bar at the top left to move around!",
     "contactme": "Contact me",
-    "reachme": "You can reach me through the following means:"
+    "reachme": "You can reach me through the following means:",
+    "Me":"Jason DA VEIGA computer science student living in France, Amiens currently studying at UFR des Sciences"
   }
 }

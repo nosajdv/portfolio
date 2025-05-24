@@ -1,52 +1,178 @@
+/* style.css */
 :root {
-    --primary: #2c3e50;
-    --secondary: #3498db;
-    --light: #ecf0f1;
-    --dark: #2c3e50;
+    --dark-blue: #0a192f;
+    --slate: #8892b0;
+    --light-slate: #a8b2d1;
+    --lightest-slate: #ccd6f6;
+    --accent: #64ffda;
+    --navy-shadow: rgba(2, 12, 27, 0.7);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'SF Mono', 'Fira Code', monospace;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--light-slate);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
+/* Animation keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Navigation */
 .navbar {
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
-    top: 0;
+    top: -70px;
+    transition: top 0.3s ease, background-color 0.3s;
     z-index: 1000;
+    animation: slideDown 0.5s ease forwards;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+@keyframes slideDown {
+    from { top: -70px; }
+    to { top: 0; }
 }
 
+.navbar.scrolled {
+    background-color: rgba(10, 25, 47, 0.95);
+    box-shadow: 0 10px 30px -10px var(--navy-shadow);
+}
+
+.nav-link {
+    color: var(--light-slate);
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    padding: 150px 2rem 0;
+    display: flex;
+    align-items: center;
+    animation: fadeIn 1s ease forwards;
+}
+
+.hero h1 {
+    color: var(--lightest-slate);
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    color: var(--slate);
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    animation: slideUp 0.8s ease 0.2s backwards;
+}
+
+/* Project Cards */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .project-card {
-    background: white;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    background: rgba(17, 34, 64, 0.5);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: cardReveal 0.6s ease forwards;
+}
+
+@keyframes cardReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
 }
 
+/* Accent elements */
+.accent {
+    color: var(--accent);
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background: var(--accent);
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+/* Scroll animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}

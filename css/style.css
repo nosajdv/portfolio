@@ -448,6 +448,45 @@ section {
   background-size: 22px 22px;
   animation: circuitPulse 8s alternate infinite;
 }
+/* ---------------- Contact Section ---------------- */
+.contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.contact li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(52, 58, 68, 0.3);
+  border-radius: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.contact li:hover {
+  background: rgba(52, 58, 68, 0.5);
+  transform: translateX(5px);
+}
+
+.contact img {
+  width: 24px;
+  height: 24px;
+  margin-right: 1rem;
+  object-fit: contain;
+}
+
+.contact a {
+  color: var(--lightest-slate);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
 
 /* Animations */
 @keyframes gridMove {

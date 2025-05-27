@@ -6,6 +6,7 @@
   --lightest-slate: #ccd6f6;
   --accent: #ffffff;
   --navy-shadow: rgba(2, 12, 27, 0.7);
+  --project-bg-image: none; /* Nouvelle variable pour les images de fond */
 }
 
 * {
@@ -179,12 +180,51 @@ section {
 }
 
 .project-card {
+  position: relative;
   background: rgba(17, 34, 64, 0.5);
   border-radius: 4px;
   padding: 2rem;
   opacity: 0;
   transform: translateY(30px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Cache les débordements de l'image */
+  min-height: 250px; /* Hauteur minimale pour les cartes */
+}
+
+/* Fond d'image pour la carte */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* Opacité réduite pour la lisibilité */
+  z-index: -1; /* Place l'image derrière le contenu */
+  transition: opacity 0.3s ease;
+}
+
+/* Effet hover sur l'image de fond */
+.project-card:hover::before {
+  opacity: 0.5;
+}
+
+/* Couche sombre pour améliorer la lisibilité du texte */
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(16, 18, 20, 0.8) 0%, 
+    rgba(16, 18, 20, 0.6) 100%
+  );
+  z-index: -1; /* Entre l'image et le contenu */
 }
 
 .project-card.visible {
@@ -198,34 +238,31 @@ section {
   box-shadow: 0 10px 30px -15px var(--navy-shadow);
 }
 
-/* ---------------- About ---------------- */
-.about .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+/* Style du texte pour le rendre lisible */
+.project-card h3 {
+  color: var(--lightest-slate);
+  margin-bottom: 1rem;
+  position: relative; /* Pour le z-index */
 }
 
-
-/* ---------------- Contact ---------------- */
-.contact ul {
-  list-style: none;
-  padding: 0;
+.project-card p {
+  color: var(--light-slate);
+  margin-bottom: 1.5rem;
+  position: relative; /* Pour le z-index */
 }
 
-.contact li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+.project-card a {
+  position: relative; /* Pour le z-index */
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-.contact li img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
+.project-card a:hover {
+  color: var(--lightest-slate);
+  text-decoration: underline;
 }
-
 /* ---------------- Utilitaires ---------------- */
 .accent {
   color: var(--accent);

@@ -258,7 +258,13 @@ section {
 .contact-icon {
   width: 24px;
   height: 24px;
-  object-fit: contain;
+  /* SVG will inherit this color */
+  color: var(--accent); /* or any color */
+  transition: color 0.3s ease;
+}
+
+.contact-item:hover .contact-icon {
+  color: #4285F4; /* Example hover color */
 }
 
 .contact-link {

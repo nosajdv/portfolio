@@ -4,27 +4,27 @@
     "description": "Application de recherche dans une base de données avec authentification",
     "tags": ["Oracle", "PHP"],
     "image": "img/php-oracle.png",
-    "link": "https://github.com/nosajdv/SAE-PHP-L2"
+    "url": "https://github.com/nosajdv/SAE-PHP-L2"
   },
   {
     "title": "Compresseur de données en Bash/C",
     "description": "Outil de compression et décompression en ligne de commande",
     "tags": ["Bash", "C"],
     "image": "img/bash-c.png",
-    "link": "https://github.com/nosajdv/EncoderDecoder"
+    "url": "https://github.com/nosajdv/EncoderDecoder"
   },
   {
     "title": "Recherche de somme maximale en Java",
     "description": "Tri et analyse de complexité en Java",
     "tags": ["Java"],
     "image": "img/java-sum.png",
-    "link": "https://github.com/nosajdv/JAVA-summaxV2"
+    "url": "https://github.com/nosajdv/JAVA-summaxV2"
   },
   {
     "title": "Simulation Java fait pour Linux",
     "tags": ["Java"],
     "description": "Simulation qui représente le comportement d'abeilles fait en Java, avec affichage",
     "image": "img/java-bees.png",
-    "link": "https://github.com/nosajdv/projetjava"
+    "url": "https://github.com/nosajdv/projetjava"
   }
 ]

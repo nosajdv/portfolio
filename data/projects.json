@@ -3,21 +3,21 @@
     "title": "Site Web PHP/Oracle",
     "description": "Application de recherche dans une base de données avec authentification",
     "tags": ["Oracle", "PHP"],
-    "image": "img/php-oracle.png",
+    "image": "img/php-oracle2.png",
     "url": "https://github.com/nosajdv/SAE-PHP-L2"
   },
   {
     "title": "Compresseur de données en Bash/C",
     "description": "Outil de compression et décompression en ligne de commande",
     "tags": ["Bash", "C"],
-    "image": "img/bash-c.png",
+    "image": "img/bash-c2.png",
     "url": "https://github.com/nosajdv/EncoderDecoder"
   },
   {
     "title": "Recherche de somme maximale en Java",
     "description": "Tri et analyse de complexité en Java",
     "tags": ["Java"],
-    "image": "img/java-sum.png",
+    "image": "img/java-sum2.png",
     "url": "https://github.com/nosajdv/JAVA-summaxV2"
   },
   {
